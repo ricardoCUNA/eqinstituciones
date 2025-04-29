@@ -1,0 +1,28 @@
+setwd("~/Redes/Redes")
+library(rgexf)
+library(igraph)
+
+g = read.gexf("EQ-autores02.gexf")
+head(g)
+ig = gexf.to.igraph(g)
+
+op = par(mai = rep(0, 4)) # Making room
+#plot(ig)
+
+par(op)
+plot(g)
+
+servr::daemon_stop(1) #Detener el servidor
+#Instituciones
+gf = read.gexf("EQ-instituciones01.gexf")
+head(gf)
+ig = gexf.to.igraph(gf)
+
+op = par(mai = rep(0, 4)) # Making room
+#plot(ig)
+
+par(op)
+plot(gf)
+
+servr::daemon_stop(1) #Detener el servidor
+
